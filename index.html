@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aditya Gupta - Developer Broadsheet</title>
+    
+    <!-- Fonts: Playfair Display, Anton, Public Sans -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Public+Sans:wght@700&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        ink: '#141210',
+                        newsprint: '#f7f4ec',
+                        hairline: '#cfc9ba'
+                    },
+                    fontFamily: {
+                        playfair: ['"Playfair Display"', 'serif'],
+                        anton: ['Anton', 'sans-serif'],
+                        public: ['"Public Sans"', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Custom base styles to reinforce the print aesthetic */
+        body {
+            background-color: #f7f4ec;
+            color: #141210;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        
+        .justified-text {
+            text-align: justify;
+            text-justify: inter-word;
+            hyphens: auto;
+        }
+        
+        .nameplate {
+            font-size: clamp(3rem, 11vw, 138px);
+        }
+        
+        .headline {
+            font-size: clamp(2.5rem, 7vw, 89px);
+        }
+
+        /* Specific double border to match spec strictly */
+        .double-rule-top {
+            border-top: 3px double #141210;
+        }
+        
+        /* High contrast selection */
+        ::selection {
+            background-color: #141210;
+            color: #f7f4ec;
+        }
+    </style>
+</head>
+<body class="font-playfair p-4 sm:p-8 md:p-12 selection:bg-ink selection:text-newsprint">
+    
+    <div id="portfolio-root" class="max-w-[1400px] mx-auto">
+        <!-- Content will be injected here via JavaScript -->
+    </div>
+
+    <script>
+        // ---------------------------------------------------------
+        // PORTFOLIO CONFIGURATION OBJECT
+        // Edit the details below to update the broadsheet content
+        // ---------------------------------------------------------
+        const portfolioData = {
+            meta: {
+                eyebrow: "Vol. I • Developer Broadsheet • Edition 2026",
+                nameplate: "Aditya Gupta",
+                headline: "Software Engineer & Architect",
+                footerText: "PRINTED & PUBLISHED GLOBALLY FOR THE ADVANCEMENT OF COMPUTING AND LOGIC."
+            },
+            contact: {
+                email: "adityagupta@tutanota.de",
+                phone: "+91 8127543896",
+                linkedin: "linkedin.com/in/aditya-gupta-oss",
+                github: "github.com/aditya-gupta-dev"
+            },
+            skills: {
+                languages: "Javascript, Typescript, Python, Java, Golang, Rust, C++, C#, SQL.",
+                tools: "Postgres, Google Cloud, Github, Sentry, Linux, Kubernetes, AWS, Huggingface.",
+                soft: "Communication, Leadership, Teamwork, Social Media Marketing."
+            },
+            projects: [
+                {
+                    title: "Social Media Pipeline",
+                    tech: "Golang, Docker, AWS, FFMPEG, Multithreading",
+                    date: "May '24",
+                    description: "Designed a high-performance, automated CLI pipeline for concurrent video downloading, audio-visual merging, and looped content creation. Engineered in Go for concurrent CPU/IO-bound orchestration using Cobra; leveraged FFmpeg for demuxing, integrated YouTube Data API v3 with OAuth2, caching, and Docker. Scaled 7 organic channels via automated content generation, reaching 3.52M+ views, 260K+ watch hours, and 15.3K+ subscribers."
+                },
+                {
+                    title: "Wayland Compositor",
+                    tech: "C, Wayland, CMake, Linux, DSA",
+                    date: "Apr '24",
+                    description: "Designed and developed a dynamic tiling window manager for X11 from the ground up, focusing on minimalism, source-level configurability, and extreme performance. Architected the core window management logic using Xlib, implemented dynamic tiling algorithms, and engineered a native C status bar for real-time hardware monitoring. Delivered an ultra-low-latency, lightweight desktop environment with a microscopic memory footprint, significantly accelerating keyboard-driven multitasking workflows."
+                }
+            ],
+            achievements: [
+                "Emerged victorious in an intense 1-versus-5 coding Hackathon held at ITM Gorakhpur, demonstrating supreme technical agility.",
+                "Secured the distinguished 3rd place in a highly competitive debate competition conducted in honor of National Space Day."
+            ],
+            education: [
+                {
+                    institution: "Lovely Professional University",
+                    location: "Phagwara, Punjab",
+                    degree: "Bachelor of Technology (CSE)",
+                    score: "CGPA: 8.56",
+                    date: "Aug '25 – Present"
+                },
+                {
+                    institution: "Don Bosco Senior Secondary",
+                    location: "Gorakhpur, UP",
+                    degree: "Intermediate",
+                    score: "Percentage: 69%",
+                    date: "Mar '24 – May '25"
+                }
+            ]
+        };
+
+        function renderPortfolio(data) {
+            const root = document.getElementById('portfolio-root');
+            
+            // --- Build Header ---
+            const headerHTML = `
+                <header class="w-full mb-6 sm:mb-10">
+                    <!-- Top Rule (2px + 1px) -->
+                    <div class="border-t-[2px] border-ink mb-[2px] w-full"></div>
+                    <div class="border-t-[1px] border-ink mb-3 sm:mb-5 w-full"></div>
+                    
+                    <!-- Eyebrow -->
+                    <p class="font-public font-bold text-[14px] sm:text-[18px] tracking-[0.34em] uppercase text-center mb-2 sm:mb-4">
+                        ${data.meta.eyebrow}
+                    </p>
+                    
+                    <!-- Nameplate -->
+                    <h1 class="nameplate font-playfair font-bold leading-[0.85] text-center uppercase mb-3 sm:mb-6 tracking-tighter">
+                        ${data.meta.nameplate}
+                    </h1>
+                    
+                    <!-- Double Rule Nameplate Divider -->
+                    <div class="double-rule-top mb-4 sm:mb-8 w-full"></div>
+                    
+                    <!-- Main Headline -->
+                    <h2 class="headline font-anton uppercase leading-[0.9] text-center mb-6 sm:mb-10 tracking-tight">
+                        ${data.meta.headline}
+                    </h2>
+                    
+                    <!-- Top Rule (1px) before content -->
+                    <div class="border-t border-ink mb-1 w-full"></div>
+                    <div class="border-t-[2px] border-ink mb-6 sm:mb-10 w-full"></div>
+                </header>
+            `;
+
+            // --- Build Column 1: Intro, Contact, Skills ---
+            const contactHTML = `
+                <div class="mb-8">
+                    <h3 class="font-anton text-[24px] sm:text-[32px] uppercase border-b-2 border-ink pb-1 mb-3">Directory</h3>
+                    <ul class="font-playfair text-[17px] sm:text-[20px] leading-tight space-y-2 mb-6">
+                        <li class="flex flex-col"><span class="font-bold text-[14px] uppercase tracking-wider">Email</span> ${data.contact.email}</li>
+                        <li class="flex flex-col"><span class="font-bold text-[14px] uppercase tracking-wider">Phone</span> ${data.contact.phone}</li>
+                        <li class="flex flex-col"><span class="font-bold text-[14px] uppercase tracking-wider">GitHub</span> ${data.contact.github}</li>
+                        <li class="flex flex-col"><span class="font-bold text-[14px] uppercase tracking-wider">LinkedIn</span> ${data.contact.linkedin}</li>
+                    </ul>
+                </div>
+            `;
+
+            const skillsHTML = `
+                <div class="mb-8">
+                    <h3 class="font-anton text-[24px] sm:text-[32px] uppercase border-b-2 border-ink pb-1 mb-3">Capabilities</h3>
+                    <div class="font-playfair text-[17px] sm:text-[20px] leading-snug space-y-4 justified-text">
+                        <p><strong class="uppercase text-[16px] tracking-wide">Languages:</strong><br/> ${data.skills.languages}</p>
+                        <p><strong class="uppercase text-[16px] tracking-wide">Infrastructure:</strong><br/> ${data.skills.tools}</p>
+                        <p><strong class="uppercase text-[16px] tracking-wide">Soft Skills:</strong><br/> ${data.skills.soft}</p>
+                    </div>
+                </div>
+            `;
+
+            const educationHTML = `
+                <div class="mb-8">
+                    <h3 class="font-anton text-[24px] sm:text-[32px] uppercase border-b-2 border-ink pb-1 mb-3">Academia</h3>
+                    <div class="space-y-5">
+                        ${data.education.map(edu => `
+                            <div>
+                                <h4 class="font-bold text-[18px] sm:text-[22px] leading-tight uppercase">${edu.institution}</h4>
+                                <p class="font-public font-bold text-[12px] tracking-widest uppercase mb-1">${edu.date} • ${edu.location}</p>
+                                <p class="text-[17px] sm:text-[19px] italic">${edu.degree}</p>
+                                <p class="text-[17px] sm:text-[19px]">${edu.score}</p>
+                            </div>
+                        `).join('')}
+                    </div>
+                </div>
+            `;
+
+            const projectsHTML = `
+                <div class="mb-8">
+                    <h3 class="font-anton text-[24px] sm:text-[32px] uppercase border-b-2 border-ink pb-1 mb-4">Major Works & Projects</h3>
+                    <div class="space-y-8">
+                        ${data.projects.map(proj => `
+                            <article>
+                                <h4 class="font-playfair font-black text-[22px] sm:text-[28px] uppercase leading-none mb-1">${proj.title}</h4>
+                                <p class="font-public font-bold text-[12px] tracking-wider uppercase mb-3 pb-2 border-b border-hairline">${proj.tech} • ${proj.date}</p>
+                                <p class="font-playfair text-[17px] sm:text-[21px] leading-relaxed justified-text">
+                                    <span class="float-left text-[50px] sm:text-[65px] font-black leading-[0.8] pr-2 pt-1 uppercase">${proj.description.charAt(0)}</span>
+                                    ${proj.description.substring(1)}
+                                </p>
+                            </article>
+                        `).join('')}
+                    </div>
+                </div>
+            `;
+
+            const imagePlaceholderHTML = `
+                <div class="mb-8">
+                    <div class="w-full aspect-[3/4] border-2 border-ink p-1">
+                        <div class="w-full h-full border border-ink relative overflow-hidden group bg-[#eae5d5]">
+                            <div class="absolute inset-0 bg-cover bg-center bg-no-repeat blur-md transition-opacity duration-700" style="background-image: url('./profile-pic-vintage-lowres.webp')" id="portrait-placeholder"></div>
+                            <img 
+                                src="./profile-pic-vintage.webp"
+                                alt="Author Portrait" 
+                                class="w-full h-full object-cover relative z-10 opacity-0 transition-opacity duration-700"
+                                onload="this.classList.remove('opacity-0'); document.getElementById('portrait-placeholder').classList.add('opacity-0');"
+                            />
+                        </div>
+                    </div>
+                    <p class="font-public text-[10px] uppercase tracking-widest text-center mt-2">Figure 1. The Author</p>
+                </div>
+            `;
+
+            const achievementsHTML = `
+                <div class="mb-8">
+                    <h3 class="font-anton text-[24px] sm:text-[32px] uppercase border-b-2 border-ink pb-1 mb-3">Distinctions</h3>
+                    <ul class="font-playfair text-[17px] sm:text-[21px] leading-snug space-y-4 justified-text">
+                        ${data.achievements.map(ach => `
+                            <li class="relative pl-4">
+                                <span class="absolute left-0 top-0 font-bold">•</span>
+                                ${ach}
+                            </li>
+                        `).join('')}
+                    </ul>
+                </div>
+            `;
+
+            const footerHTML = `
+                <footer class="w-full mt-8 sm:mt-12 mb-4">
+                    <div class="border-t-[2px] border-ink mb-1 w-full"></div>
+                    <div class="border-t border-ink mb-4 w-full"></div>
+                    <p class="font-public text-[11px] sm:text-[14px] uppercase tracking-widest text-center font-bold">
+                        ${data.meta.footerText}
+                    </p>
+                    <div class="border-t border-ink mt-4 w-full"></div>
+                </footer>
+            `;
+
+            const mainLayout = `
+                <main class="flex flex-col lg:flex-row gap-0 lg:gap-8 w-full border-b-[2px] border-ink pb-8">
+                    
+                    <!-- Left Column -->
+                    <div class="lg:w-[25%] lg:border-r border-hairline lg:pr-8 flex flex-col gap-2">
+                        ${contactHTML}
+                        ${skillsHTML}
+                        ${educationHTML}
+                    </div>
+
+                    <!-- Center Column (Main body) -->
+                    <div class="lg:w-[50%] lg:border-r border-hairline lg:pr-8 mt-8 lg:mt-0">
+                        ${projectsHTML}
+                    </div>
+
+                    <!-- Right Column -->
+                    <div class="lg:w-[25%] mt-8 lg:mt-0 flex flex-col gap-2">
+                        ${imagePlaceholderHTML}
+                        ${achievementsHTML}
+                    </div>
+                    
+                </main>
+            `;
+
+            // Inject all pieces into the DOM
+            root.innerHTML = headerHTML + mainLayout + footerHTML;
+        }
+
+        // Initialize Render
+        window.addEventListener('DOMContentLoaded', () => {
+            renderPortfolio(portfolioData);
+        });
+
+    </script>
+</body>
+</html>
