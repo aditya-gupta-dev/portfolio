@@ -3,7 +3,38 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aditya Gupta - Developer Broadsheet</title>
+    <title>Aditya Gupta - Software Engineer & Architect</title>
+    
+    <meta name="description" content="Portfolio of Aditya Gupta, Software Engineer & Architect. A vintage developer broadsheet showcasing major works, projects, and academic distinctions." />
+    
+    <!-- Favicons -->
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="icon" type="image/png" sizes="48x48" href="/favicon.png" />
+    <link rel="icon" type="image/jpeg" sizes="192x192" href="/icon-192.jpg" />
+    <link rel="apple-touch-icon" href="/icon-192.jpg" />
+    
+    <!-- Theme Color (monochrome to match design) -->
+    <meta name="theme-color" content="#141210" media="(prefers-color-scheme: dark)">
+    <meta name="theme-color" content="#f7f4ec" media="(prefers-color-scheme: light)">
+
+    <!-- Open Graph / Social -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://adityagupta.com/" />
+    <meta property="og:title" content="Aditya Gupta - Developer Broadsheet" />
+    <meta property="og:description" content="Portfolio of Aditya Gupta, Software Engineer & Architect. A vintage developer broadsheet." />
+    <meta property="og:image" content="https://adityagupta.com/og-image.jpg" />
+    <meta property="og:image:width" content="1024" />
+    <meta property="og:image:height" content="1024" />
+    <meta property="og:image:type" content="image/jpeg" />
+    <meta property="og:image:alt" content="Aditya Gupta Portrait" />
+    <meta property="og:site_name" content="Aditya Gupta" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Aditya Gupta - Developer Broadsheet" />
+    <meta name="twitter:description" content="Portfolio of Aditya Gupta, Software Engineer & Architect." />
+    <meta name="twitter:image" content="https://adityagupta.com/og-image.jpg" />
+    <meta name="twitter:image:alt" content="Aditya Gupta Portrait" />
     
     <!-- Fonts: Playfair Display, Anton, Public Sans -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -168,7 +199,7 @@
             // --- Build Column 1: Intro, Contact, Skills ---
             const contactHTML = `
                 <div class="mb-8">
-                    <h3 class="font-anton text-[24px] sm:text-[32px] uppercase border-b-2 border-ink pb-1 mb-3">Directory</h3>
+                    <h3 class="font-anton text-[24px] sm:text-[32px] uppercase border-b-2 border-ink pb-1 mb-3">Contact</h3>
                     <ul class="font-playfair text-[17px] sm:text-[20px] leading-tight space-y-2 mb-6">
                         <li class="flex flex-col"><span class="font-bold text-[14px] uppercase tracking-wider">Email</span> ${data.contact.email}</li>
                         <li class="flex flex-col"><span class="font-bold text-[14px] uppercase tracking-wider">Phone</span> ${data.contact.phone}</li>
@@ -180,7 +211,7 @@
 
             const skillsHTML = `
                 <div class="mb-8">
-                    <h3 class="font-anton text-[24px] sm:text-[32px] uppercase border-b-2 border-ink pb-1 mb-3">Capabilities</h3>
+                    <h3 class="font-anton text-[24px] sm:text-[32px] uppercase border-b-2 border-ink pb-1 mb-3">Skills</h3>
                     <div class="font-playfair text-[17px] sm:text-[20px] leading-snug space-y-4 justified-text">
                         <p><strong class="uppercase text-[16px] tracking-wide">Languages:</strong><br/> ${data.skills.languages}</p>
                         <p><strong class="uppercase text-[16px] tracking-wide">Infrastructure:</strong><br/> ${data.skills.tools}</p>
@@ -191,7 +222,7 @@
 
             const educationHTML = `
                 <div class="mb-8">
-                    <h3 class="font-anton text-[24px] sm:text-[32px] uppercase border-b-2 border-ink pb-1 mb-3">Academia</h3>
+                    <h3 class="font-anton text-[24px] sm:text-[32px] uppercase border-b-2 border-ink pb-1 mb-3">Education</h3>
                     <div class="space-y-5">
                         ${data.education.map(edu => `
                             <div>
@@ -207,7 +238,7 @@
 
             const projectsHTML = `
                 <div class="mb-8">
-                    <h3 class="font-anton text-[24px] sm:text-[32px] uppercase border-b-2 border-ink pb-1 mb-4">Major Works & Projects</h3>
+                    <h3 class="font-anton text-[24px] sm:text-[32px] uppercase border-b-2 border-ink pb-1 mb-4">Projects</h3>
                     <div class="space-y-8">
                         ${data.projects.map(proj => `
                             <article>
@@ -224,15 +255,15 @@
             `;
 
             const imagePlaceholderHTML = `
-                <div class="mb-8">
+                <div class="mb-0 lg:mb-8">
                     <div class="w-full aspect-[3/4] border-2 border-ink p-1">
                         <div class="w-full h-full border border-ink relative overflow-hidden group bg-[#eae5d5]">
-                            <div class="absolute inset-0 bg-cover bg-center bg-no-repeat blur-md transition-opacity duration-700" style="background-image: url('./profile-pic-vintage-lowres.webp')" id="portrait-placeholder"></div>
+                            <div class="absolute inset-0 bg-cover bg-center bg-no-repeat blur-md transition-opacity duration-700" style="background-image: url('./profile-pic-vintage-lowres.webp')"></div>
                             <img 
                                 src="./profile-pic-vintage.webp"
                                 alt="Author Portrait" 
                                 class="w-full h-full object-cover relative z-10 opacity-0 transition-opacity duration-700"
-                                onload="this.classList.remove('opacity-0'); document.getElementById('portrait-placeholder').classList.add('opacity-0');"
+                                onload="this.classList.remove('opacity-0'); this.previousElementSibling.classList.add('opacity-0');"
                             />
                         </div>
                     </div>
@@ -241,8 +272,8 @@
             `;
 
             const achievementsHTML = `
-                <div class="mb-8">
-                    <h3 class="font-anton text-[24px] sm:text-[32px] uppercase border-b-2 border-ink pb-1 mb-3">Distinctions</h3>
+                <div class="mb-0 lg:mb-8">
+                    <h3 class="font-anton text-[24px] sm:text-[32px] uppercase border-b-2 border-ink pb-1 mb-3">Achievements</h3>
                     <ul class="font-playfair text-[17px] sm:text-[21px] leading-snug space-y-4 justified-text">
                         ${data.achievements.map(ach => `
                             <li class="relative pl-4">
@@ -266,23 +297,33 @@
             `;
 
             const mainLayout = `
-                <main class="flex flex-col lg:flex-row gap-0 lg:gap-8 w-full border-b-[2px] border-ink pb-8">
+                <main class="flex flex-col lg:flex-row gap-8 lg:gap-8 w-full border-b-[2px] border-ink pb-8">
                     
                     <!-- Left Column -->
-                    <div class="lg:w-[25%] lg:border-r border-hairline lg:pr-8 flex flex-col gap-2">
+                    <div class="lg:w-[25%] lg:border-r border-hairline lg:pr-8 flex flex-col gap-8 lg:gap-2">
+                        <div class="block lg:hidden">
+                            ${imagePlaceholderHTML}
+                        </div>
                         ${contactHTML}
                         ${skillsHTML}
-                        ${educationHTML}
+                        <div class="hidden lg:block">
+                            ${educationHTML}
+                        </div>
                     </div>
 
                     <!-- Center Column (Main body) -->
-                    <div class="lg:w-[50%] lg:border-r border-hairline lg:pr-8 mt-8 lg:mt-0">
+                    <div class="lg:w-[50%] lg:border-r border-hairline lg:pr-8 mt-0 flex flex-col gap-8 lg:gap-0">
                         ${projectsHTML}
+                        <div class="block lg:hidden">
+                            ${educationHTML}
+                        </div>
                     </div>
 
                     <!-- Right Column -->
-                    <div class="lg:w-[25%] mt-8 lg:mt-0 flex flex-col gap-2">
-                        ${imagePlaceholderHTML}
+                    <div class="lg:w-[25%] mt-0 flex flex-col gap-8 lg:gap-2">
+                        <div class="hidden lg:block">
+                            ${imagePlaceholderHTML}
+                        </div>
                         ${achievementsHTML}
                     </div>
                     
@@ -298,6 +339,16 @@
             renderPortfolio(portfolioData);
         });
 
+        // Register Service Worker for caching
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('./sw.js').then(registration => {
+                    console.log('ServiceWorker registration successful with scope: ', registration.scope);
+                }, err => {
+                    console.log('ServiceWorker registration failed: ', err);
+                });
+            });
+        }
     </script>
 </body>
 </html>
