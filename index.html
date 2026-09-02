@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Aditya Gupta - Software Engineer & Architect</title>
     
-    <meta name="description" content="Portfolio of Aditya Gupta, Software Engineer & Architect. A vintage developer broadsheet showcasing major works, projects, and academic distinctions." />
+    <meta name="description" content="Portfolio of Aditya Gupta, Software Engineer & Architect. A vintage developer broadsheet showcasing major works, personal story, and academic distinctions." />
     <meta name="keywords" content="Aditya Gupta, Software Engineer, Architect, Portfolio, Developer, Go, Python, TypeScript, React, Kubernetes, Docker, AWS, System Design, Open Source" />
     
     <!-- Favicons -->
@@ -127,20 +127,17 @@
                 tools: "Postgres, Google Cloud, Github, Sentry, Linux, Kubernetes, AWS, Huggingface.",
                 soft: "Communication, Leadership, Teamwork, Social Media Marketing."
             },
-            projects: [
-                {
-                    title: "Social Media Pipeline",
-                    tech: "Golang, Docker, AWS, FFMPEG, Multithreading",
-                    date: "May '24",
-                    description: "Designed a high-performance, automated CLI pipeline for concurrent video downloading, audio-visual merging, and looped content creation. Engineered in Go for concurrent CPU/IO-bound orchestration using Cobra; leveraged FFmpeg for demuxing, integrated YouTube Data API v3 with OAuth2, caching, and Docker. Scaled 7 organic channels via automated content generation, reaching 3.52M+ views, 260K+ watch hours, and 15.3K+ subscribers."
-                },
-                {
-                    title: "Wayland Compositor",
-                    tech: "C, Wayland, CMake, Linux, DSA",
-                    date: "Apr '24",
-                    description: "Designed and developed a dynamic tiling window manager for X11 from the ground up, focusing on minimalism, source-level configurability, and extreme performance. Architected the core window management logic using Xlib, implemented dynamic tiling algorithms, and engineered a native C status bar for real-time hardware monitoring. Delivered an ultra-low-latency, lightweight desktop environment with a microscopic memory footprint, significantly accelerating keyboard-driven multitasking workflows."
-                }
-            ],
+            about: {
+                title: "About Me",
+                summary: "A software engineer & architect with an obsession for systems that are fast, resilient, and beautifully simple. I spend my days designing backends and pipelines, my nights reading kernel source, and my weekends arguing about fonts on the internet.",
+                traits: [
+                    "Systems thinker — I debug from the kernel up, not the console down.",
+                    "Performance purist — milliseconds matter, memory footprints matter more.",
+                    "Open source believer — good software, like good journalism, should be free to read."
+                ],
+                currently: "Pursuing a B.Tech in Computer Science at Lovely Professional University while building tools, contributing to open source, and preparing for a career in systems engineering.",
+                hobbies: "Beyond my technical pursuits, I dedicate time to wrestling and mixed martial arts (MMA), building physical endurance, strategic thinking, and absolute composure under pressure. In my quieter moments, I turn to astronomy, observing celestial phenomena and studying the cosmos, driven by a deep curiosity for the mechanics of the universe."
+            },
             achievements: [
                 "Emerged victorious in an intense 1-versus-5 coding Hackathon held at ITM Gorakhpur, demonstrating supreme technical agility.",
                 "Secured the distinguished 3rd place in a highly competitive debate competition conducted in honor of National Space Day."
@@ -237,21 +234,27 @@
                 </div>
             `;
 
-            const projectsHTML = `
+            const aboutHTML = `
                 <div class="mb-8">
-                    <h3 class="font-anton text-[24px] sm:text-[32px] uppercase border-b-2 border-ink pb-1 mb-4">Projects</h3>
-                    <div class="space-y-8">
-                        ${data.projects.map(proj => `
-                            <article>
-                                <h4 class="font-playfair font-black text-[22px] sm:text-[28px] uppercase leading-none mb-1">${proj.title}</h4>
-                                <p class="font-public font-bold text-[12px] tracking-wider uppercase mb-3 pb-2 border-b border-hairline">${proj.tech} • ${proj.date}</p>
-                                <p class="font-playfair text-[17px] sm:text-[21px] leading-relaxed justified-text">
-                                    <span class="float-left text-[50px] sm:text-[65px] font-black leading-[0.8] pr-2 pt-1 uppercase">${proj.description.charAt(0)}</span>
-                                    ${proj.description.substring(1)}
-                                </p>
-                            </article>
+                    <h3 class="font-anton text-[24px] sm:text-[32px] uppercase border-b-2 border-ink pb-1 mb-4">About Me</h3>
+                    <p class="font-playfair text-[17px] sm:text-[21px] leading-relaxed justified-text mb-6">
+                        <span class="float-left text-[50px] sm:text-[65px] font-black leading-[0.8] pr-2 pt-1 uppercase">${data.about.summary.charAt(0)}</span>
+                        ${data.about.summary.substring(1)}
+                    </p>
+                    <ul class="font-playfair text-[17px] sm:text-[21px] leading-snug space-y-4 justified-text mb-6">
+                        ${data.about.traits.map(trait => `
+                            <li class="relative pl-4">
+                                <span class="absolute left-0 top-0 font-bold">•</span>
+                                ${trait}
+                            </li>
                         `).join('')}
-                    </div>
+                    </ul>
+                    <p class="font-playfair text-[17px] sm:text-[21px] leading-relaxed justified-text italic border-t border-hairline pt-4 mb-4">
+                        ${data.about.currently}
+                    </p>
+                    <p class="font-playfair text-[17px] sm:text-[21px] leading-relaxed justified-text">
+                        <strong class="uppercase text-[16px] tracking-wide">Hobbies & Pursuits:</strong> ${data.about.hobbies}
+                    </p>
                 </div>
             `;
 
@@ -314,7 +317,7 @@
 
                     <!-- Center Column (Main body) -->
                     <div class="lg:w-[50%] lg:border-r border-hairline lg:pr-8 mt-0 flex flex-col gap-8 lg:gap-0">
-                        ${projectsHTML}
+                        ${aboutHTML}
                         <div class="block lg:hidden">
                             ${educationHTML}
                         </div>

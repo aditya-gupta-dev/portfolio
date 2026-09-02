@@ -33,7 +33,7 @@ All portfolio content is abstracted into a single JavaScript configuration objec
 To update the content with your own:
 1. Open `index.html`.
 2. Locate the `portfolioData` object inside the `<script>` tag.
-3. Edit the properties (meta, contact, skills, projects, achievements, education) as needed. The DOM will automatically render your updated content!
+3. Edit the properties (meta, contact, skills, about, achievements, education) as needed. The DOM will automatically render your updated content!
 
 To update the portrait image:
 1. Replace `profile-pic-vintage.webp` with your own image.
