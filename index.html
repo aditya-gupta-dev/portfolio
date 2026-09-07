@@ -3,113 +3,57 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aditya Gupta - Software Engineer & Architect</title>
-
-    <meta name="description" content="Portfolio of Aditya Gupta, Software Engineer & Architect. A vintage developer broadsheet showcasing major works, personal story, and academic distinctions." />
-    <meta name="keywords" content="Aditya Gupta, Software Engineer, Architect, Portfolio, Developer, Go, Python, TypeScript, React, Kubernetes, Docker, AWS, System Design, Open Source" />
-
-    <!-- Favicons -->
-    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
-    <link rel="icon" type="image/png" sizes="48x48" href="/favicon.png" />
-    <link rel="icon" type="image/jpeg" sizes="192x192" href="/icon-192.jpg" />
-    <link rel="apple-touch-icon" href="/icon-192.jpg" />
-
-    <!-- Theme Color (monochrome to match design) -->
-    <meta name="theme-color" content="#141210" media="(prefers-color-scheme: dark)">
-    <meta name="theme-color" content="#f7f4ec" media="(prefers-color-scheme: light)">
-
-    <!-- Open Graph / Social -->
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://portfolio.adibuilds.shop/" />
-    <meta property="og:title" content="Aditya Gupta - Developer Broadsheet" />
-    <meta property="og:description" content="Portfolio of Aditya Gupta, Software Engineer & Architect. A vintage developer broadsheet." />
-    <meta property="og:image" content="https://portfolio.adibuilds.shop/og-image.jpg" />
-    <meta property="og:image:width" content="1024" />
-    <meta property="og:image:height" content="1024" />
-    <meta property="og:image:type" content="image/jpeg" />
-    <meta property="og:image:alt" content="Aditya Gupta Portrait" />
-    <meta property="og:site_name" content="Aditya Gupta" />
-
-    <!-- Twitter Card -->
-    <meta name="twitter:card" content="summary" />
-    <meta name="twitter:title" content="Aditya Gupta - Developer Broadsheet" />
-    <meta name="twitter:description" content="Portfolio of Aditya Gupta, Software Engineer & Architect." />
-    <meta name="twitter:image" content="https://portfolio.adibuilds.shop/og-image.jpg" />
-    <meta name="twitter:image:alt" content="Aditya Gupta Portrait" />
-
-    <!-- Fonts: Playfair Display, Anton, Public Sans -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Public+Sans:wght@700&display=swap" rel="stylesheet">
-
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        ink: '#141210',
-                        newsprint: '#f7f4ec',
-                        hairline: '#cfc9ba'
-                    },
-                    fontFamily: {
-                        playfair: ['"Playfair Display"', 'serif'],
-                        anton: ['Anton', 'sans-serif'],
-                        public: ['"Public Sans"', 'sans-serif'],
-                    }
-                }
-            }
-        }
-    </script>
+    <meta name="description" content="Portfolio of Aditya Gupta, Software Engineer & Architect.">
+    <title>Aditya Gupta - Software Engineer</title>
     <style>
-        /* Custom base styles to reinforce the print aesthetic */
+        @font-face {
+            font-family: 'Excalifont';
+            src: url('./Excalifont-Regular.woff2') format('woff2');
+            font-weight: normal;
+            font-style: normal;
+        }
+        :root {
+            color-scheme: light dark;
+        }
         body {
-            background-color: #f7f4ec;
-            color: #141210;
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
+            font-family: 'Excalifont', sans-serif;
+            line-height: 1.6;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem 1rem;
         }
-
-        .justified-text {
-            text-align: justify;
-            text-justify: inter-word;
-            hyphens: auto;
+        img {
+            max-width: 100%;
+            height: auto;
         }
-
-        .nameplate {
-            font-size: clamp(3rem, 11vw, 138px);
+        ul {
+            margin-top: 0.5rem;
+            margin-bottom: 1rem;
         }
-
-        .headline {
-            font-size: clamp(2.5rem, 7vw, 89px);
+        section {
+            margin-bottom: 2rem;
         }
-
-        /* Specific double border to match spec strictly */
-        .double-rule-top {
-            border-top: 3px double #141210;
-        }
-
-        /* High contrast selection */
-        ::selection {
-            background-color: #141210;
-            color: #f7f4ec;
+        hr {
+            margin: 2rem 0;
+            border: none;
+            border-top: 1px solid currentColor;
+            opacity: 0.2;
         }
     </style>
 </head>
-<body class="font-playfair p-4 sm:p-8 md:p-12 selection:bg-ink selection:text-newsprint">
+<body>
+    <header>
+        <h1>Aditya Gupta</h1>
+        <p><strong>Software Engineer & Architect</strong></p>
+        <p><a href="mailto:adityagupta@tutanota.de">adityagupta@tutanota.de</a> | <a href="https://github.com/aditya-gupta-dev">GitHub</a> | <a href="https://linkedin.com/in/aditya-gupta-oss">LinkedIn</a> | <a href="./aditya-cv.pdf" download>Download CV</a></p>
+    </header>
 
-    <div id="portfolio-root" class="max-w-[1400px] mx-auto">
-        <!-- Content will be injected here via JavaScript -->
-    </div>
+    <hr>
+
+    <main id="content"></main>
 
     <script>
-        // ---------------------------------------------------------
-        // PORTFOLIO CONFIGURATION OBJECT
-        // Edit the details below to update the broadsheet content
-        // ---------------------------------------------------------
-        const portfolioData = {
+        const data = {
             meta: {
                 eyebrow: "Vol. I • Developer Broadsheet • Edition 2026",
                 nameplate: "Aditya Gupta",
@@ -245,327 +189,84 @@
             ]
         };
 
-        function renderPortfolio(data) {
-            const root = document.getElementById('portfolio-root');
+        const content = document.getElementById('content');
+        let html = '';
 
-            // --- Build Header ---
-            const headerHTML = `
-                <header class="w-full mb-6 sm:mb-10">
-                    <div class="border-t-[2px] border-ink mb-[2px] w-full"></div>
-                    <div class="border-t-[1px] border-ink mb-3 sm:mb-5 w-full"></div>
-                    <p class="font-public font-bold text-[14px] sm:text-[18px] tracking-[0.34em] uppercase text-center mb-2 sm:mb-4">
-                        ${data.meta.eyebrow}
-                    </p>
-                    <h1 class="nameplate font-playfair font-bold leading-[0.85] text-center uppercase mb-3 sm:mb-6 tracking-tighter">
-                        ${data.meta.nameplate}
-                    </h1>
-                    <div class="double-rule-top mb-4 sm:mb-8 w-full"></div>
-                    <h2 class="headline font-anton uppercase leading-[0.9] text-center mb-6 sm:mb-10 tracking-tight">
-                        ${data.meta.headline}
-                    </h2>
-                    <div class="border-t border-ink mb-1 w-full"></div>
-                    <div class="border-t-[2px] border-ink mb-6 sm:mb-10 w-full"></div>
-                </header>
-            `;
+        // About Me
+        html += '<section>';
+        html += '<h2>' + data.about.title + '</h2>';
+        html += '<img src="./profile-pic-vintage.webp" alt="Aditya Gupta" width="200" style="float: right; margin-left: 1rem; margin-bottom: 1rem; border-radius: 8px;">';
+        html += '<p>' + data.about.summary + '</p>';
+        html += '<ul>';
+        data.about.traits.forEach(t => html += '<li>' + t + '</li>');
+        html += '</ul>';
+        html += '<p>' + data.about.currently + '</p>';
+        html += '<div style="clear: both;"></div>';
+        html += '</section>';
 
-            const sectionHeader = (title) => `<h3 class="font-anton text-[24px] sm:text-[32px] uppercase border-b-2 border-ink pb-1 mb-3">${title}</h3>`;
+        // Technical Arsenal
+        html += '<section>';
+        html += '<h2>Technical Arsenal</h2>';
+        const renderSkills = (title, items) => {
+            let res = '<h3>' + title + '</h3><ul>';
+            items.forEach(i => res += '<li><strong>' + i.name + ':</strong> ' + i.desc + '</li>');
+            res += '</ul>';
+            return res;
+        };
+        html += renderSkills('Languages', data.skills.languages);
+        html += renderSkills('Platforms', data.skills.platforms);
+        html += renderSkills('Frameworks', data.skills.frameworks);
+        html += renderSkills('Tools', data.skills.tools);
+        html += '</section>';
 
-            // --- Contact HTML ---
-            const contactHTML = `
-                <div class="mb-8">
-                    ${sectionHeader("Contact")}
-                    <ul class="font-playfair text-[17px] sm:text-[20px] leading-tight space-y-3 mb-6">
-                        <li class="flex flex-col"><span class="font-bold text-[14px] uppercase tracking-wider mb-1">Email</span> <a href="mailto:${data.contact.email}" class="underline underline-offset-4 hover:opacity-70 transition-opacity">${data.contact.email}</a></li>
-                        <li class="flex flex-col"><span class="font-bold text-[14px] uppercase tracking-wider mb-1">Phone</span> <a href="tel:${data.contact.phone.replace(/\s+/g, '')}" class="underline underline-offset-4 hover:opacity-70 transition-opacity">${data.contact.phone}</a></li>
-                        <li class="flex flex-col"><span class="font-bold text-[14px] uppercase tracking-wider mb-1">GitHub</span> <a href="https://${data.contact.github}" target="_blank" class="underline underline-offset-4 hover:opacity-70 transition-opacity">${data.contact.github}</a></li>
-                        <li class="flex flex-col"><span class="font-bold text-[14px] uppercase tracking-wider mb-1">LinkedIn</span> <a href="https://${data.contact.linkedin}" target="_blank" class="underline underline-offset-4 hover:opacity-70 transition-opacity">${data.contact.linkedin}</a></li>
-                    </ul>
-                </div>
-            `;
-
-            // --- Soft Skills HTML ---
-            const softSkillsHTML = `
-                <div class="mb-8">
-                    ${sectionHeader("Soft Skills")}
-                    <div class="font-playfair text-[17px] sm:text-[20px] leading-snug space-y-2 justified-text">
-                        <ul class="list-none space-y-2">
-                            ${data.skills.soft.split(',').map(skill => `<li class="relative pl-4"><span class="absolute left-0 top-0 font-bold">•</span>${skill.trim()}</li>`).join('')}
-                        </ul>
-                    </div>
-                </div>
-            `;
-
-            // --- Giant Skills HTML ---
-            const giantSkillsHTML = `
-                <div class="w-full mb-8 mt-4">
-                    <h2 class="font-anton text-[40px] sm:text-[60px] uppercase text-center mb-8 border-b-[2px] border-ink pb-2">Technical Arsenals</h2>
-
-                    <div class="mb-10 w-full">
-                        <h3 class="font-anton text-[32px] sm:text-[40px] uppercase mb-6 border-b border-ink pb-1">Languages</h3>
-                        <div class="columns-1 md:columns-2 lg:columns-3 gap-8 w-full" style="column-rule: 1px solid #cfc9ba;">
-                            ${data.skills.languages.map(item => `
-                                <div class="break-inside-avoid mb-5">
-                                    <p class="font-playfair text-[16px] sm:text-[18px] leading-snug justified-text">
-                                        <strong class="font-bold uppercase tracking-wider text-[14px]">${item.name}.—</strong> ${item.desc}
-                                    </p>
-                                </div>
-                            `).join('')}
-                        </div>
-                    </div>
-
-                    <div class="mb-10 w-full">
-                        <h3 class="font-anton text-[32px] sm:text-[40px] uppercase mb-6 border-b border-ink pb-1">Platforms</h3>
-                        <div class="columns-1 md:columns-2 lg:columns-3 gap-8 w-full" style="column-rule: 1px solid #cfc9ba;">
-                            ${data.skills.platforms.map(item => `
-                                <div class="break-inside-avoid mb-5">
-                                    <p class="font-playfair text-[16px] sm:text-[18px] leading-snug justified-text">
-                                        <strong class="font-bold uppercase tracking-wider text-[14px]">${item.name}.—</strong> ${item.desc}
-                                    </p>
-                                </div>
-                            `).join('')}
-                        </div>
-                    </div>
-
-                    <div class="mb-10 w-full">
-                        <h3 class="font-anton text-[32px] sm:text-[40px] uppercase mb-6 border-b border-ink pb-1">Frameworks</h3>
-                        <div class="columns-1 md:columns-2 lg:columns-3 gap-8 w-full" style="column-rule: 1px solid #cfc9ba;">
-                            ${data.skills.frameworks.map(item => `
-                                <div class="break-inside-avoid mb-5">
-                                    <p class="font-playfair text-[16px] sm:text-[18px] leading-snug justified-text">
-                                        <strong class="font-bold uppercase tracking-wider text-[14px]">${item.name}.—</strong> ${item.desc}
-                                    </p>
-                                </div>
-                            `).join('')}
-                        </div>
-                    </div>
-
-                    <div class="mb-10 w-full">
-                        <h3 class="font-anton text-[32px] sm:text-[40px] uppercase mb-6 border-b border-ink pb-1">Tools</h3>
-                        <div class="columns-1 md:columns-2 lg:columns-3 gap-8 w-full" style="column-rule: 1px solid #cfc9ba;">
-                            ${data.skills.tools.map(item => `
-                                <div class="break-inside-avoid mb-5">
-                                    <p class="font-playfair text-[16px] sm:text-[18px] leading-snug justified-text">
-                                        <strong class="font-bold uppercase tracking-wider text-[14px]">${item.name}.—</strong> ${item.desc}
-                                    </p>
-                                </div>
-                            `).join('')}
-                        </div>
-                    </div>
-
-                    <div class="border-b-[2px] border-ink w-full"></div>
-                </div>
-            `;
-
-
-            // --- Education HTML ---
-            const educationHTML = `
-                <div class="mb-8">
-                    ${sectionHeader("Education")}
-                    <div class="space-y-5">
-                        ${data.education.map(edu => `
-                            <div>
-                                <h4 class="font-bold text-[18px] sm:text-[22px] leading-tight uppercase">${edu.institution}</h4>
-                                <p class="font-public font-bold text-[12px] tracking-widest uppercase mb-1">${edu.date} • ${edu.location}</p>
-                                <p class="text-[17px] sm:text-[19px] italic">${edu.degree}</p>
-                                <p class="text-[17px] sm:text-[19px]">${edu.score}</p>
-                            </div>
-                        `).join('')}
-                    </div>
-                </div>
-            `;
-
-            // --- About HTML ---
-            const aboutHTML = `
-                <div class="mb-8">
-                    ${sectionHeader(data.about.title)}
-                    <p class="font-playfair text-[17px] sm:text-[21px] leading-relaxed justified-text mb-6">
-                        <span class="float-left text-[50px] sm:text-[65px] font-black leading-[0.8] pr-2 pt-1 uppercase">${data.about.summary.charAt(0)}</span>
-                        ${data.about.summary.substring(1)}
-                    </p>
-                    <ul class="font-playfair text-[17px] sm:text-[21px] leading-snug space-y-4 justified-text mb-6">
-                        ${data.about.traits.map(trait => `
-                            <li class="relative pl-4">
-                                <span class="absolute left-0 top-0 font-bold">•</span>
-                                ${trait}
-                            </li>
-                        `).join('')}
-                    </ul>
-                    <p class="font-playfair text-[17px] sm:text-[21px] leading-relaxed justified-text italic border-t border-hairline pt-4 mb-4">
-                        ${data.about.currently}
-                    </p>
-                    <p class="font-playfair text-[17px] sm:text-[21px] leading-relaxed justified-text">
-                        <strong class="uppercase text-[16px] tracking-wide">Hobbies & Pursuits:</strong> ${data.about.hobbies}
-                    </p>
-                </div>
-            `;
-
-            // --- Experience HTML ---
-            const experienceHTML = `
-                <div class="mb-8">
-                    ${sectionHeader("Experience")}
-                    <div class="space-y-6">
-                        ${data.experience.map(exp => `
-                            <div>
-                                <h4 class="font-bold text-[18px] sm:text-[22px] leading-tight uppercase">${exp.title}</h4>
-                                <ul class="font-playfair text-[17px] sm:text-[20px] leading-snug space-y-3 mt-3 justified-text">
-                                    ${exp.bullets.map(bullet => `
-                                        <li class="relative pl-4">
-                                            <span class="absolute left-0 top-0 font-bold">•</span>
-                                            ${bullet}
-                                        </li>
-                                    `).join('')}
-                                </ul>
-                            </div>
-                        `).join('')}
-                    </div>
-                </div>
-            `;
-
-            // --- Image Placeholder HTML ---
-            const imagePlaceholderHTML = `
-                <div class="mb-0 lg:mb-8">
-                    <div class="w-full aspect-[3/4] border-2 border-ink p-1">
-                        <div class="w-full h-full border border-ink relative overflow-hidden group bg-[#eae5d5]">
-                            <div class="absolute inset-0 bg-cover bg-center bg-no-repeat blur-md transition-opacity duration-700" style="background-image: url('./profile-pic-vintage-lowres.webp')"></div>
-                            <img
-                                src="./profile-pic-vintage.webp"
-                                alt="Author Portrait"
-                                class="w-full h-full object-cover relative z-10 opacity-0 transition-opacity duration-700 grayscale contrast-125 brightness-90"
-                                onload="this.classList.remove('opacity-0'); this.previousElementSibling.classList.add('opacity-0');"
-                            />
-                        </div>
-                    </div>
-                    <p class="font-public text-[10px] uppercase tracking-widest text-center mt-2 mb-3">Figure 1. The Author</p>
-                    <a href="./aditya-cv.pdf" download class="block w-full border-[2px] border-ink py-2 text-center hover:bg-ink hover:text-newsprint transition-colors duration-300">
-                        <span class="font-public text-[11px] uppercase tracking-widest font-bold">Download Full C.V.</span>
-                    </a>
-                </div>
-            `;
-
-            // --- Achievements HTML ---
-            const achievementsHTML = `
-                <div class="mb-8">
-                    ${sectionHeader("Achievements")}
-                    <ul class="font-playfair text-[17px] sm:text-[21px] leading-snug space-y-4 justified-text">
-                        ${data.achievements.map(ach => `
-                            <li class="relative pl-4">
-                                <span class="absolute left-0 top-0 font-bold">•</span>
-                                ${ach}
-                            </li>
-                        `).join('')}
-                    </ul>
-                </div>
-            `;
-
-            // --- Projects HTML ---
-            const projectsHTML = `
-                <div class="w-full mb-8">
-                    <h2 class="font-anton text-[40px] sm:text-[60px] uppercase text-center mb-8 border-b-2 border-ink pb-2">Major Works & Engineered Systems</h2>
-                    <div class="flex flex-col lg:flex-row gap-8 lg:gap-8 w-full border-b-[2px] border-ink pb-8">
-                        ${data.projects.map((proj, idx) => `
-                            <div class="lg:w-[33.33%] lg:border-r border-hairline lg:pr-8 last:border-r-0 last:pr-0 flex flex-col">
-                                <div class="mb-6">
-                                    <div class="w-full aspect-square border-2 border-ink p-1">
-                                        <div class="w-full h-full border border-ink relative overflow-hidden bg-[#eae5d5]">
-                                            <a href="${proj.link}" target="_blank">
-                                                <img src="${proj.image}" alt="${proj.title}" class="w-full h-full object-cover grayscale contrast-125 brightness-95 hover:scale-105 transition-transform duration-500" />
-                                            </a>
-                                        </div>
-                                    </div>
-                                    <p class="font-public text-[10px] uppercase tracking-widest text-center mt-2">${proj.caption}</p>
-                                </div>
-                                <a href="${proj.link}" target="_blank" class="hover:underline decoration-2 underline-offset-4">
-                                    <h4 class="font-anton text-[28px] uppercase leading-none mb-3">${proj.title}</h4>
-                                </a>
-                                <p class="font-public font-bold text-[11px] tracking-widest uppercase mb-4 text-ink/80 border-b border-hairline pb-2">${proj.tech} • ${proj.date}</p>
-                                <ul class="font-playfair text-[17px] sm:text-[19px] leading-snug space-y-3 justified-text">
-                                    ${proj.bullets.map(bullet => `
-                                        <li class="relative pl-4">
-                                            <span class="absolute left-0 top-0 font-bold text-[14px]">•</span>
-                                            ${bullet}
-                                        </li>
-                                    `).join('')}
-                                </ul>
-                            </div>
-                        `).join('')}
-                    </div>
-                </div>
-            `;
-
-            // --- Footer HTML ---
-            const footerHTML = `
-                <footer class="w-full mt-4 sm:mt-8 mb-4">
-                    <div class="border-t-[1px] border-ink mb-1 w-full"></div>
-                    <div class="border-t-[2px] border-ink mb-4 w-full"></div>
-                    <p class="font-public text-[11px] sm:text-[14px] uppercase tracking-widest text-center font-bold">
-                        ${data.meta.footerText}
-                    </p>
-                    <div class="border-t-[1px] border-ink mt-4 w-full"></div>
-                </footer>
-            `;
-
-            const mainLayout = `
-                <main class="flex flex-col w-full">
-                    <!-- Top 3-column row -->
-                    <div class="flex flex-col lg:flex-row gap-8 lg:gap-8 w-full border-b-[2px] border-ink pb-8 mb-8">
-                        <!-- Left Column -->
-                        <div class="lg:w-[25%] lg:border-r border-hairline lg:pr-8 flex flex-col gap-8 lg:gap-2">
-                            <div class="block lg:hidden">
-                                ${imagePlaceholderHTML}
-                            </div>
-                            ${contactHTML}
-                            ${softSkillsHTML}
-                            <div class="hidden lg:block">
-                                ${educationHTML}
-                            </div>
-                        </div>
-
-                        <!-- Center Column (Main body) -->
-                        <div class="lg:w-[50%] lg:border-r border-hairline lg:pr-8 mt-0 flex flex-col gap-8 lg:gap-0">
-                            ${aboutHTML}
-                            ${experienceHTML}
-                            <div class="block lg:hidden">
-                                ${educationHTML}
-                            </div>
-                        </div>
-
-                        <!-- Right Column -->
-                        <div class="lg:w-[25%] mt-0 flex flex-col gap-8 lg:gap-2">
-                            <div class="hidden lg:block">
-                                ${imagePlaceholderHTML}
-                            </div>
-                            ${achievementsHTML}
-                        </div>
-                    </div>
-
-                    <!-- Giant Skills Row -->
-                    ${giantSkillsHTML}
-
-                    <!-- Projects Row -->
-                    ${projectsHTML}
-
-                </main>
-            `;
-
-            // Inject all pieces into the DOM
-            root.innerHTML = headerHTML + mainLayout + footerHTML;
-        }
-
-        // Initialize Render
-        window.addEventListener('DOMContentLoaded', () => {
-            renderPortfolio(portfolioData);
+        // Projects
+        html += '<section>';
+        html += '<h2>Projects</h2>';
+        data.projects.forEach(p => {
+            html += '<article>';
+            html += '<h3><a href="' + p.link + '">' + p.title + '</a></h3>';
+            html += '<p><em>' + p.date + ' | ' + p.tech + '</em></p>';
+            html += '<ul>';
+            p.bullets.forEach(b => html += '<li>' + b + '</li>');
+            html += '</ul>';
+            html += '</article>';
         });
+        html += '</section>';
 
-        // Register Service Worker for caching
-        if ('serviceWorker' in navigator) {
-            window.addEventListener('load', () => {
-                navigator.serviceWorker.register('./sw.js').then(registration => {
-                    console.log('ServiceWorker registration successful with scope: ', registration.scope);
-                }, err => {
-                    console.log('ServiceWorker registration failed: ', err);
-                });
-            });
-        }
+        // Experience
+        html += '<section>';
+        html += '<h2>Experience</h2>';
+        data.experience.forEach(e => {
+            html += '<article>';
+            html += '<h3>' + e.title + '</h3>';
+            html += '<p><em>' + e.date + '</em></p>';
+            html += '<ul>';
+            e.bullets.forEach(b => html += '<li>' + b + '</li>');
+            html += '</ul>';
+            html += '</article>';
+        });
+        html += '</section>';
+
+        // Education
+        html += '<section>';
+        html += '<h2>Education</h2>';
+        data.education.forEach(e => {
+            html += '<article>';
+            html += '<h3>' + e.institution + '</h3>';
+            html += '<p>' + e.degree + '<br>' + e.score + '<br><em>' + e.date + '</em></p>';
+            html += '</article>';
+        });
+        html += '</section>';
+
+        // Achievements
+        html += '<section>';
+        html += '<h2>Achievements</h2>';
+        html += '<ul>';
+        data.achievements.forEach(a => html += '<li>' + a + '</li>');
+        html += '</ul>';
+        html += '</section>';
+
+        content.innerHTML = html;
     </script>
 </body>
 </html>
