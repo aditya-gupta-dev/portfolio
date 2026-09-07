@@ -21,6 +21,12 @@
             max-width: 800px;
             margin: 0 auto;
             padding: 2rem 1rem;
+            font-size: 1.05rem;
+        }
+        @media (min-width: 768px) {
+            body {
+                font-size: 1.25rem;
+            }
         }
         img {
             max-width: 100%;
@@ -42,11 +48,21 @@
     </style>
 </head>
 <body>
-    <header>
-        <h1>Aditya Gupta</h1>
-        <p><strong>Software Engineer & Architect</strong></p>
-        <p><a href="mailto:adityagupta@tutanota.de">adityagupta@tutanota.de</a> | <a href="https://github.com/aditya-gupta-dev">GitHub</a> | <a href="https://linkedin.com/in/aditya-gupta-oss">LinkedIn</a> | <a href="./aditya-cv.pdf" download>Download CV</a></p>
+    <header style="display: flex; align-items: baseline; justify-content: space-between; flex-wrap: wrap;">
+        <h1 style="margin-bottom: 0;">Aditya Gupta</h1>
+        <button id="themeToggle" onclick="toggleTheme()" style="font-family: inherit; font-size: 1rem; cursor: pointer; background: transparent; border: none; color: inherit; padding: 0; text-decoration: underline;"></button>
     </header>
+    <div style="margin-top: 0.5rem;">
+        <p style="margin-top: 0; margin-bottom: 0.5rem;"><strong>Software Engineer & Architect</strong></p>
+        <nav>
+            <a href="#about">About</a> | 
+            <a href="#skills">Skills</a> | 
+            <a href="#projects">Projects</a> | 
+            <a href="#experience">Experience</a> | 
+            <a href="#education">Education</a> | 
+            <a href="#contact">Contact</a>
+        </nav>
+    </div>
 
     <hr>
 
@@ -118,11 +134,12 @@
             },
             experience: [
                 {
-                    title: "IGNITE (Sports Club)",
+                    title: "Freelance Software Developer",
                     date: "Recent",
                     bullets: [
-                        "Orchestrated real-time broadcast production using OBS Studio, implementing complex scene transitions, dynamic overlays, and multi-source compositing to deliver a professional-grade live stream for a high-traffic cricket auction.",
-                        "Optimized streaming performance and audience interaction, driving a 56% increase in concurrent viewer metrics and a steady 16% subscribers growth through data-driven engagement strategies."
+                        "Delivered end-to-end web applications and native Android solutions for diverse clients, transforming business requirements into scalable technical architectures.",
+                        "Architected responsive, high-performance web frontends and engineered robust backend services to handle complex data processing and user authentication.",
+                        "Developed robust Android applications using modern Kotlin patterns and Jetpack Compose, ensuring seamless offline capabilities and intuitive UX/UI design."
                     ]
                 }
             ],
@@ -152,19 +169,6 @@
                         "Architected the core window management logic using Xlib, implemented dynamic tiling algorithms, and engineered a native C status bar for real-time hardware monitoring.",
                         "Delivered an ultra-low-latency, lightweight desktop environment with a 12 MB memory footprint, significantly accelerating keyboard-driven multitasking workflows."
                     ]
-                },
-                {
-                    title: "Android Notification Tracker",
-                    tech: "Kotlin, Postgres, SQLite, Jetpack",
-                    date: "June '26",
-                    link: "https://github.com/aditya-gupta-dev/Notify/",
-                    image: "./proj-notify.webp",
-                    caption: "Fig 4. The Notification Tracker",
-                    bullets: [
-                        "Designed an app that automatically saves your notifications, while using AI to summarize daily clutter and using data science to provide insights to help you not lose any data.",
-                        "Architected an offline-first cache strategy with MVVP architecture, Jetpack Compose & Kotlin Async, a custom SQLite engine, with AI summaries, and real-time Postgres synchronization.",
-                        "Ensured 99.99% recovery with zero data loss and sub-second UI rendering, delivering a battery-optimized offline-first experience processing 100,000+ background events daily."
-                    ]
                 }
             ],
             achievements: [
@@ -193,9 +197,9 @@
         let html = '';
 
         // About Me
-        html += '<section>';
+        html += '<section id="about">';
         html += '<h2>' + data.about.title + '</h2>';
-        html += '<img src="./profile-pic-vintage.webp" alt="Aditya Gupta" width="200" style="float: right; margin-left: 1rem; margin-bottom: 1rem; border-radius: 8px;">';
+        html += '<img src="./profile-pic-vintage.webp" alt="Aditya Gupta" width="200" style="float: right; margin-left: 1rem; margin-bottom: 1rem; border-radius: 50%; aspect-ratio: 1/1; object-fit: cover;">';
         html += '<p>' + data.about.summary + '</p>';
         html += '<ul>';
         data.about.traits.forEach(t => html += '<li>' + t + '</li>');
@@ -205,7 +209,7 @@
         html += '</section>';
 
         // Technical Arsenal
-        html += '<section>';
+        html += '<section id="skills">';
         html += '<h2>Technical Arsenal</h2>';
         const renderSkills = (title, items) => {
             let res = '<h3>' + title + '</h3><ul>';
@@ -220,7 +224,7 @@
         html += '</section>';
 
         // Projects
-        html += '<section>';
+        html += '<section id="projects">';
         html += '<h2>Projects</h2>';
         data.projects.forEach(p => {
             html += '<article>';
@@ -234,7 +238,7 @@
         html += '</section>';
 
         // Experience
-        html += '<section>';
+        html += '<section id="experience">';
         html += '<h2>Experience</h2>';
         data.experience.forEach(e => {
             html += '<article>';
@@ -248,7 +252,7 @@
         html += '</section>';
 
         // Education
-        html += '<section>';
+        html += '<section id="education">';
         html += '<h2>Education</h2>';
         data.education.forEach(e => {
             html += '<article>';
@@ -259,14 +263,35 @@
         html += '</section>';
 
         // Achievements
-        html += '<section>';
+        html += '<section id="achievements">';
         html += '<h2>Achievements</h2>';
         html += '<ul>';
         data.achievements.forEach(a => html += '<li>' + a + '</li>');
         html += '</ul>';
         html += '</section>';
 
+        // Contact
+        html += '<section id="contact">';
+        html += '<h2>Contact</h2>';
+        html += '<ul>';
+        html += '<li><strong>Email:</strong> <a href="mailto:' + data.contact.email + '">' + data.contact.email + '</a></li>';
+        html += '<li><strong>GitHub:</strong> <a href="https://' + data.contact.github + '">' + data.contact.github + '</a></li>';
+        html += '<li><strong>LinkedIn:</strong> <a href="https://' + data.contact.linkedin + '">' + data.contact.linkedin + '</a></li>';
+        html += '<li><strong>Resume:</strong> <a href="./aditya-cv.pdf" download>Download CV</a></li>';
+        html += '</ul>';
+        html += '</section>';
+
         content.innerHTML = html;
+    </script>
+    <script>
+        let isDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+        function toggleTheme() {
+            isDark = !isDark;
+            document.documentElement.style.colorScheme = isDark ? 'dark' : 'light';
+            document.getElementById('themeToggle').innerText = isDark ? 'Light Mode' : 'Dark Mode';
+        }
+        document.getElementById('themeToggle').innerText = isDark ? 'Light Mode' : 'Dark Mode';
+        document.documentElement.style.colorScheme = isDark ? 'dark' : 'light';
     </script>
 </body>
 </html>
